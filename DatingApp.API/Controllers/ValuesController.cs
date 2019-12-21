@@ -21,6 +21,7 @@ namespace DatingApp.API.Controllers
 
         }
         // GET api/values
+        [AllowAnonymous]
         [HttpGet]
         // public ActionResult<IEnumerable<string>> Get()
         // {
@@ -62,7 +63,8 @@ namespace DatingApp.API.Controllers
         // {
         //     return "value";
         // }
-
+        [AllowAnonymous]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetValue(int id)
         {
             var value = await _context.Values.FirstOrDefaultAsync(x=> x.id ==id);
